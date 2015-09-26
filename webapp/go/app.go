@@ -195,10 +195,13 @@ func permitted(w http.ResponseWriter, r *http.Request, anotherID int) bool {
 //(toppageに?)足跡を残す機能
 func markFootprint(w http.ResponseWriter, r *http.Request, id int) {
 	user := getCurrentUser(w, r)
+/*
 	if user.ID != id {
 		_, err := db.Exec(`INSERT INTO footprints (user_id,owner_id) VALUES (?,?)`, id, user.ID)
 		checkErr(err)
 	}
+*/
+db.Exec(`INSERT INTO footprints (user_id,owner_id) VALUES (?,?) ON DUPLICATE KEY UPDATE created_at=NULL`, id, user.ID)
 }
 
 //エラー処理
