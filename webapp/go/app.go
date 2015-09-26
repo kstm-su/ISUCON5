@@ -16,6 +16,7 @@ import (
 	"strconv"
 	"strings"
 	"time"
+	"net"
 )
 
 var (
@@ -119,9 +120,19 @@ func getCurrentUser(w http.ResponseWriter, r *http.Request) *User {
 		return nil
 	}
 	user.ID=userID.(int)
-	user.AccountName=session.Values["user_AccountName"].(string)
-	user.NickName=session.Values["user_NickName"].(string)
-	user.Email=session.Values["user_Email"].(string)
+	AN,ok1:=session.Values["user_AccountName"]
+	if ok1  {
+	user.AccountName=AN.(string)
+	}
+	NN , ok2:=session.Values["user_NickName"]
+	if ok2  {
+user.NickName=NN.(string)	
+}
+	E,ok3:=session.Values["user_Email"]
+
+	if ok3   {
+	user.Email=E.(string)
+}
 
 	/*row := db.QueryRow(`SELECT id, account_name, nick_name, email FROM users WHERE id=?`, userID)
 	user := User{}
@@ -877,7 +888,29 @@ func main() {
 	r.HandleFunc("/initialize", myHandler(GetInitialize))
 	r.HandleFunc("/", myHandler(GetIndex))
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir("../static")))
-	log.Fatal(http.ListenAndServe(":8080", r))
+	//log.Fatal(http.ListenAndServe(":8080", r))
+
+  ll, _ := net.Listen("unix", "/tmp/go.sock")
+/*
+  if err2 != nil {
+    fmt.Printf("%s\n", err2)
+    return
+  }
+  sigc := make(chan os.Signal, 1)
+  signal.Notify(sigc, os.Interrupt, os.Kill, syscall.SIGTERM)
+  go func(c chan os.Signal){
+    sig := <- c
+    log.Printf("Caught signal %s: shutting down.", sig)
+    ll.Close()
+    os.Exit(0)
+  }(sigc)
+*/
+  err = http.Serve(ll, r)
+os.Chmod("/tmp/go.sock", 0777)
+  if err != nil {
+    panic(err)
+  } 
+
 }
 
 func checkErr(err error) {
