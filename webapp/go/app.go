@@ -16,7 +16,7 @@ import (
 	"strconv"
 	"strings"
 	"time"
-	"net"
+//	"net"
 )
 
 var (
@@ -392,7 +392,10 @@ LIMIT 10`, user.ID)
 //最新エントリーから1000件取ってくる
 //すべてのデータから、友達の投稿だけを持ってきたい
 //MySQL側で対処
-	rows, err = db.Query(`SELECT * FROM entries ORDER BY created_at DESC LIMIT 1000`)
+//	rows, err = db.Query(`SELECT * FROM entries ORDER BY created_at DESC LIMIT 1000`)
+	
+	rows, err = db.Query(`SELECT * FROM entries WHERE user_id in (SELECT one FROM relations WHERE another = ? ) ORDER BY created_at DESC LIMIT 10`, user.ID)
+
 	if err != sql.ErrNoRows {
 		checkErr(err)
 	}
@@ -402,9 +405,11 @@ LIMIT 10`, user.ID)
 		var body string
 		var createdAt time.Time
 		checkErr(rows.Scan(&id, &userID, &private, &body, &createdAt))
+/*
 		if !isFriend(w, r, userID) {
 			continue
 		}
+*/
 		entriesOfFriends = append(entriesOfFriends, Entry{id, userID, private == 1, strings.SplitN(body, "\n", 2)[0], strings.SplitN(body, "\n", 2)[1], createdAt})
 		if len(entriesOfFriends) >= 10 {
 			break
@@ -888,9 +893,9 @@ func main() {
 	r.HandleFunc("/initialize", myHandler(GetInitialize))
 	r.HandleFunc("/", myHandler(GetIndex))
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir("../static")))
-	//log.Fatal(http.ListenAndServe(":8080", r))
+	log.Fatal(http.ListenAndServe(":8080", r))
 
-  ll, _ := net.Listen("unix", "/tmp/go.sock")
+ // ll, _ := net.Listen("unix", "/tmp/go.sock")
 /*
   if err2 != nil {
     fmt.Printf("%s\n", err2)
@@ -905,11 +910,11 @@ func main() {
     os.Exit(0)
   }(sigc)
 */
-  err = http.Serve(ll, r)
-os.Chmod("/tmp/go.sock", 0777)
-  if err != nil {
-    panic(err)
-  } 
+ // err = http.Serve(ll, r)
+//os.Chmod("/tmp/go.sock", 0777)
+ // if err != nil {
+   // panic(err)
+ // } 
 
 }
 
