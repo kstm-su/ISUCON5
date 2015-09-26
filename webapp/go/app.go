@@ -80,11 +80,13 @@ var (
 	ErrContentNotFound  = errors.New("Content not found.")
 )
 
+//User認証
 func authenticate(w http.ResponseWriter, r *http.Request, email, passwd string) {
 	query := `SELECT u.id AS id, u.account_name AS account_name, u.nick_name AS nick_name, u.email AS email
 FROM users u
 JOIN salts s ON u.id = s.user_id
 WHERE u.email = ? AND u.passhash = SHA2(CONCAT(?, s.salt), 512)`
+//hash関数消せるかも？？
 	row := db.QueryRow(query, email, passwd)
 	user := User{}
 	err := row.Scan(&user.ID, &user.AccountName, &user.NickName, &user.Email)
@@ -99,6 +101,8 @@ WHERE u.email = ? AND u.passhash = SHA2(CONCAT(?, s.salt), 512)`
 	session.Save(r, w)
 }
 
+//セッション内のユーザーIDからUSERデータを持ってくる
+//クエリ飛ばしてますi セッション内に入るかも？
 func getCurrentUser(w http.ResponseWriter, r *http.Request) *User {
 	u := context.Get(r, "user")
 	if u != nil {
@@ -121,6 +125,7 @@ func getCurrentUser(w http.ResponseWriter, r *http.Request) *User {
 	return &user
 }
 
+//認証されているかどうか
 func authenticated(w http.ResponseWriter, r *http.Request) bool {
 	user := getCurrentUser(w, r)
 	if user == nil {
@@ -130,6 +135,7 @@ func authenticated(w http.ResponseWriter, r *http.Request) bool {
 	return true
 }
 
+//ユーザーID からユーザーを返す
 func getUser(w http.ResponseWriter, userID int) *User {
 	row := db.QueryRow(`SELECT * FROM users WHERE id = ?`, userID)
 	user := User{}
@@ -141,6 +147,7 @@ func getUser(w http.ResponseWriter, userID int) *User {
 	return &user
 }
 
+//名前からユーザーを取ってくる
 func getUserFromAccount(w http.ResponseWriter, name string) *User {
 	row := db.QueryRow(`SELECT * FROM users WHERE account_name = ?`, name)
 	user := User{}
@@ -152,6 +159,9 @@ func getUserFromAccount(w http.ResponseWriter, name string) *User {
 	return &user
 }
 
+//セッションのユーザーidと、anotherIDは友達かどうか取ってくる
+//Exsist できるかも？
+//relationsに二通りインサートすると、OR消せる
 func isFriend(w http.ResponseWriter, r *http.Request, anotherID int) bool {
 	session := getSession(w, r)
 	id := session.Values["user_id"]
@@ -162,6 +172,7 @@ func isFriend(w http.ResponseWriter, r *http.Request, anotherID int) bool {
 	return *cnt > 0
 }
 
+//名前から友達かどうか検索する
 func isFriendAccount(w http.ResponseWriter, r *http.Request, name string) bool {
 	user := getUserFromAccount(w, name)
 	if user == nil {
@@ -170,6 +181,8 @@ func isFriendAccount(w http.ResponseWriter, r *http.Request, name string) bool {
 	return isFriend(w, r, user.ID)
 }
 
+//自分か友達を判定する関数
+//自分の記事を見れる人かどうか判定
 func permitted(w http.ResponseWriter, r *http.Request, anotherID int) bool {
 	user := getCurrentUser(w, r)
 	if anotherID == user.ID {
@@ -178,6 +191,7 @@ func permitted(w http.ResponseWriter, r *http.Request, anotherID int) bool {
 	return isFriend(w, r, anotherID)
 }
 
+//(toppageに?)足跡を残す機能
 func markFootprint(w http.ResponseWriter, r *http.Request, id int) {
 	user := getCurrentUser(w, r)
 	if user.ID != id {
@@ -186,6 +200,7 @@ func markFootprint(w http.ResponseWriter, r *http.Request, id int) {
 	}
 }
 
+//エラー処理
 func myHandler(fn func(http.ResponseWriter, *http.Request)) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		defer func() {
@@ -221,15 +236,18 @@ func myHandler(fn func(http.ResponseWriter, *http.Request)) http.HandlerFunc {
 	}
 }
 
+//セッションを取ってくる
 func getSession(w http.ResponseWriter, r *http.Request) *sessions.Session {
 	session, _ := store.Get(r, "isucon5q-go.session")
 	return session
 }
 
+//templatesのパスを取る
 func getTemplatePath(file string) string {
 	return path.Join("templates", file)
 }
 
+//templatesのマッピング
 func render(w http.ResponseWriter, r *http.Request, status int, file string, data interface{}) {
 	fmap := template.FuncMap{
 		"getUser": func(id int) *User {
@@ -251,6 +269,7 @@ func render(w http.ResponseWriter, r *http.Request, status int, file string, dat
 			return s
 		},
 		"split": strings.Split,
+//idを指定してEntryを整形して返す
 		"getEntry": func(id int) Entry {
 			row := db.QueryRow(`SELECT * FROM entries WHERE id=?`, id)
 			var entryID, userID, private int
@@ -259,6 +278,9 @@ func render(w http.ResponseWriter, r *http.Request, status int, file string, dat
 			checkErr(row.Scan(&entryID, &userID, &private, &body, &createdAt))
 			return Entry{id, userID, private == 1, strings.SplitN(body, "\n", 2)[0], strings.SplitN(body, "\n", 2)[1], createdAt}
 		},
+//コメントの数を返す。
+//*消せる
+//entry id にindexをつける
 		"numComments": func(id int) int {
 			row := db.QueryRow(`SELECT COUNT(*) AS c FROM comments WHERE entry_id = ?`, id)
 			var n int
@@ -271,10 +293,12 @@ func render(w http.ResponseWriter, r *http.Request, status int, file string, dat
 	checkErr(tpl.Execute(w, data))
 }
 
+//Login画面を表示
 func GetLogin(w http.ResponseWriter, r *http.Request) {
 	render(w, r, http.StatusOK, "login.html", struct{ Message string }{"高負荷に耐えられるSNSコミュニティサイトへようこそ!"})
 }
 
+//Login情報を受け取ってリダイレクト
 func PostLogin(w http.ResponseWriter, r *http.Request) {
 	email := r.FormValue("email")
 	passwd := r.FormValue("password")
@@ -282,6 +306,7 @@ func PostLogin(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
 
+//Logout page
 func GetLogout(w http.ResponseWriter, r *http.Request) {
 	session := getSession(w, r)
 	delete(session.Values, "user_id")
@@ -291,6 +316,7 @@ func GetLogout(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetIndex(w http.ResponseWriter, r *http.Request) {
+//認証されていなければそのまま返す
 	if !authenticated(w, r) {
 		return
 	}
@@ -304,6 +330,8 @@ func GetIndex(w http.ResponseWriter, r *http.Request) {
 		checkErr(err)
 	}
 
+//つくった日でソートして前から5件持ってくる
+//sortするのを、プライマリーキーに
 	rows, err := db.Query(`SELECT * FROM entries WHERE user_id = ? ORDER BY created_at LIMIT 5`, user.ID)
 	if err != sql.ErrNoRows {
 		checkErr(err)
@@ -318,6 +346,8 @@ func GetIndex(w http.ResponseWriter, r *http.Request) {
 	}
 	rows.Close()
 
+//comments.entry_idのindexかくにん
+//コメントのidでソート
 	rows, err = db.Query(`SELECT c.id AS id, c.entry_id AS entry_id, c.user_id AS user_id, c.comment AS comment, c.created_at AS created_at
 FROM comments c
 JOIN entries e ON c.entry_id = e.id
@@ -335,6 +365,9 @@ LIMIT 10`, user.ID)
 	}
 	rows.Close()
 
+//最新エントリーから1000件取ってくる
+//すべてのデータから、友達の投稿だけを持ってきたい
+//MySQL側で対処
 	rows, err = db.Query(`SELECT * FROM entries ORDER BY created_at DESC LIMIT 1000`)
 	if err != sql.ErrNoRows {
 		checkErr(err)
@@ -355,6 +388,13 @@ LIMIT 10`, user.ID)
 	}
 	rows.Close()
 
+//最新コメントから1000件取ってくる
+//すべてのデータから、友達のコメントだけを持ってきたい
+//誰から誰へのコメントか
+//
+//MySQL側で対処
+
+//最優先
 	rows, err = db.Query(`SELECT * FROM comments ORDER BY created_at DESC LIMIT 1000`)
 	if err != sql.ErrNoRows {
 		checkErr(err)
@@ -384,6 +424,9 @@ LIMIT 10`, user.ID)
 	}
 	rows.Close()
 
+//root/frends
+//片方で良さそうな気がする？
+//自分か、自分が人の友達かを出してきている。
 	rows, err = db.Query(`SELECT * FROM relations WHERE one = ? OR another = ? ORDER BY created_at DESC`, user.ID, user.ID)
 	if err != sql.ErrNoRows {
 		checkErr(err)
@@ -394,6 +437,7 @@ LIMIT 10`, user.ID)
 		var createdAt time.Time
 		checkErr(rows.Scan(&id, &one, &another, &createdAt))
 		var friendID int
+//ここのifelseは消せそう
 		if one == user.ID {
 			friendID = another
 		} else {
@@ -409,6 +453,8 @@ LIMIT 10`, user.ID)
 	}
 	rows.Close()
 
+//GROUP BYは遅そうだからなにかできる？
+//あしあとは最新だけ残れば良さそう！
 	rows, err = db.Query(`SELECT user_id, owner_id, DATE(created_at) AS date, MAX(created_at) AS updated
 FROM footprints
 WHERE user_id = ?
@@ -426,6 +472,8 @@ LIMIT 10`, user.ID)
 	}
 	rows.Close()
 
+//friendsは使ってない疑惑
+//人数は見てる
 	render(w, r, http.StatusOK, "index.html", struct {
 		User              User
 		Profile           Profile
@@ -440,6 +488,7 @@ LIMIT 10`, user.ID)
 	})
 }
 
+//訪問先のprofileを持ってくる
 func GetProfile(w http.ResponseWriter, r *http.Request) {
 	if !authenticated(w, r) {
 		return
@@ -454,6 +503,7 @@ func GetProfile(w http.ResponseWriter, r *http.Request) {
 		checkErr(err)
 	}
 	var query string
+//許可されている場合はすべて、許可がない場合は公開ページのみ持ってくる
 	if permitted(w, r, owner.ID) {
 		query = `SELECT * FROM entries WHERE user_id = ? ORDER BY created_at LIMIT 5`
 	} else {
@@ -474,6 +524,7 @@ func GetProfile(w http.ResponseWriter, r *http.Request) {
 	}
 	rows.Close()
 
+//足跡をつける
 	markFootprint(w, r, owner.ID)
 
 	render(w, r, http.StatusOK, "profile.html", struct {
@@ -484,8 +535,10 @@ func GetProfile(w http.ResponseWriter, r *http.Request) {
 	}{
 		*owner, prof, entries, permitted(w, r, owner.ID),
 	})
+//permittedを使い回す
 }
 
+//profileを編集する
 func PostProfile(w http.ResponseWriter, r *http.Request) {
 	if !authenticated(w, r) {
 		return
@@ -509,6 +562,7 @@ WHERE user_id = ?`
 	http.Redirect(w, r, "/profile/"+account, http.StatusSeeOther)
 }
 
+//訪問先のEntry一覧
 func ListEntries(w http.ResponseWriter, r *http.Request) {
 	if !authenticated(w, r) {
 		return
@@ -546,6 +600,7 @@ func ListEntries(w http.ResponseWriter, r *http.Request) {
 	}{owner, entries, getCurrentUser(w, r).ID == owner.ID})
 }
 
+//エントリーを1つ見る
 func GetEntry(w http.ResponseWriter, r *http.Request) {
 	if !authenticated(w, r) {
 		return
@@ -567,6 +622,7 @@ func GetEntry(w http.ResponseWriter, r *http.Request) {
 			checkErr(ErrPermissionDenied)
 		}
 	}
+//Limitつける
 	rows, err := db.Query(`SELECT * FROM comments WHERE entry_id = ?`, entry.ID)
 	if err != sql.ErrNoRows {
 		checkErr(err)
@@ -640,6 +696,8 @@ func PostComment(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/diary/entry/"+strconv.Itoa(entry.ID), http.StatusSeeOther)
 }
 
+//あしあと一覧
+//MAXけせそう
 func GetFootprints(w http.ResponseWriter, r *http.Request) {
 	if !authenticated(w, r) {
 		return
@@ -664,12 +722,15 @@ LIMIT 50`, user.ID)
 	rows.Close()
 	render(w, r, http.StatusOK, "footprints.html", struct{ Footprints []Footprint }{footprints})
 }
+
+//友だちリストを取得
 func GetFriends(w http.ResponseWriter, r *http.Request) {
 	if !authenticated(w, r) {
 		return
 	}
 
 	user := getCurrentUser(w, r)
+//どちらかでよい
 	rows, err := db.Query(`SELECT * FROM relations WHERE one = ? OR another = ? ORDER BY created_at DESC`, user.ID, user.ID)
 	if err != sql.ErrNoRows {
 		checkErr(err)
@@ -704,6 +765,7 @@ func PostFriends(w http.ResponseWriter, r *http.Request) {
 
 	user := getCurrentUser(w, r)
 	anotherAccount := mux.Vars(r)["account_name"]
+//ユニーク使えば判定いらないかも
 	if !isFriendAccount(w, r, anotherAccount) {
 		another := getUserFromAccount(w, anotherAccount)
 		_, err := db.Exec(`INSERT INTO relations (one, another) VALUES (?,?), (?,?)`, user.ID, another.ID, another.ID, user.ID)
