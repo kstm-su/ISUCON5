@@ -398,8 +398,9 @@ LIMIT 10`, user.ID)
 /* 追加 */
 	session := getSession(w, r)
 	myID := session.Values["user_id"]
+	rows, err = db.Query(`SELECT DISTINCT c.* FROM (SELECT comments.* FROM comments JOIN relations ON comments.user_id = relations.one AND relations.another = ? ORDER BY comments.created_at DESC LIMIT 1000) c JOIN entries ON c.entry_id = entries.id JOIN relations ON entries.user_id = relations.one WHERE relations.another = ? OR entries.private = 0 LIMIT 10`, myID, myID)
 /* ここまで */
-	rows, err = db.Query(`SELECT * FROM comments ORDER BY created_at DESC LIMIT 1000`)
+	//rows, err = db.Query(`SELECT * FROM comments ORDER BY created_at DESC LIMIT 1000`)
 	if err != sql.ErrNoRows {
 		checkErr(err)
 	}
@@ -407,6 +408,7 @@ LIMIT 10`, user.ID)
 	for rows.Next() {
 		c := Comment{}
 		checkErr(rows.Scan(&c.ID, &c.EntryID, &c.UserID, &c.Comment, &c.CreatedAt))
+/*
 		if !isFriend(w, r, c.UserID) {
 			continue
 		}
@@ -421,6 +423,7 @@ LIMIT 10`, user.ID)
 				continue
 			}
 		}
+*/
 		commentsOfFriends = append(commentsOfFriends, c)
 		if len(commentsOfFriends) >= 10 {
 			break
