@@ -427,7 +427,7 @@ LIMIT 10`, user.ID)
 /* 追加 */
 	session := getSession(w, r)
 	myID := session.Values["user_id"]
-	rows, err = db.Query(`SELECT DISTINCT c.* FROM (SELECT comments.* FROM comments JOIN relations ON comments.user_id = relations.one AND relations.another = ? ORDER BY comments.created_at DESC LIMIT 1000) c JOIN entries ON c.entry_id = entries.id JOIN relations ON entries.user_id = relations.one WHERE relations.another = ? OR entries.private = 0 LIMIT 10`, myID, myID)
+	rows, err = db.Query(`SELECT DISTINCT c.* FROM (SELECT comments.* FROM comments JOIN relations ON comments.user_id = relations.one AND relations.another = ? ORDER BY comments.created_at DESC LIMIT 100) c JOIN entries ON c.entry_id = entries.id JOIN relations ON entries.user_id = relations.one WHERE relations.another = ? OR entries.private = 0 LIMIT 10`, myID, myID)
 /* ここまで */
 	//rows, err = db.Query(`SELECT * FROM comments ORDER BY created_at DESC LIMIT 1000`)
 	if err != sql.ErrNoRows {
