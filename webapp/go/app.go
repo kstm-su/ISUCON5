@@ -98,6 +98,9 @@ WHERE u.email = ? AND u.passhash = SHA2(CONCAT(?, s.salt), 512)`
 	}
 	session := getSession(w, r)
 	session.Values["user_id"] = user.ID
+	session.Values["user_AccountName"] = user.AccountName
+	session.Values["user_NickName"] = user.NickName
+	session.Values["user_Email"] = user.Email
 	session.Save(r, w)
 }
 
@@ -110,17 +113,23 @@ func getCurrentUser(w http.ResponseWriter, r *http.Request) *User {
 		return &user
 	}
 	session := getSession(w, r)
+	user := User{}
 	userID, ok := session.Values["user_id"]
 	if !ok || userID == nil {
 		return nil
 	}
-	row := db.QueryRow(`SELECT id, account_name, nick_name, email FROM users WHERE id=?`, userID)
+	user.ID=userID.(int)
+	user.AccountName=session.Values["user_AccountName"].(string)
+	user.NickName=session.Values["user_NickName"].(string)
+	user.Email=session.Values["user_Email"].(string)
+
+	/*row := db.QueryRow(`SELECT id, account_name, nick_name, email FROM users WHERE id=?`, userID)
 	user := User{}
 	err := row.Scan(&user.ID, &user.AccountName, &user.NickName, &user.Email)
 	if err == sql.ErrNoRows {
 		checkErr(ErrAuthentication)
 	}
-	checkErr(err)
+	checkErr(err)*/
 	context.Set(r, "user", user)
 	return &user
 }
