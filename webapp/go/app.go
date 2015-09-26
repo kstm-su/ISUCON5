@@ -160,8 +160,8 @@ func getUserFromAccount(w http.ResponseWriter, name string) *User {
 }
 
 //セッションのユーザーidと、anotherIDは友達かどうか取ってくる
-//Exsist できるかも？
-//relationsに二通りインサートすると、OR消せる
+//-------Exsist できるかも？
+//-------relationsに二通りインサートすると、OR消せる
 func isFriend(w http.ResponseWriter, r *http.Request, anotherID int) bool {
 	session := getSession(w, r)
 	id := session.Values["user_id"]
@@ -286,7 +286,7 @@ func render(w http.ResponseWriter, r *http.Request, status int, file string, dat
 //*消せる
 //entry id にindexをつける
 		"numComments": func(id int) int {
-			row := db.QueryRow(`SELECT COUNT(*) AS c FROM comments WHERE entry_id = ?`, id)
+			row := db.QueryRow(`SELECT COUNT(1) AS c FROM comments WHERE entry_id = ?`, id)
 			var n int
 			checkErr(row.Scan(&n))
 			return n
@@ -438,7 +438,8 @@ LIMIT 10`, user.ID)
 //root/frends
 //片方で良さそうな気がする？
 //自分か、自分が人の友達かを出してきている。
-	rows, err = db.Query(`SELECT * FROM relations WHERE one = ? OR another = ? ORDER BY created_at DESC`, user.ID, user.ID)
+	rows, err = db.Query(`SELECT * FROM relations WHERE one = ?  ORDER BY created_at DESC`, user.ID)
+	//rows, err = db.Query(`SELECT * FROM relations WHERE one = ? OR another = ? ORDER BY created_at DESC`, user.ID, user.ID)
 	if err != sql.ErrNoRows {
 		checkErr(err)
 	}
@@ -449,11 +450,11 @@ LIMIT 10`, user.ID)
 		checkErr(rows.Scan(&id, &one, &another, &createdAt))
 		var friendID int
 //ここのifelseは消せそう
-		if one == user.ID {
+//		if one == user.ID {
 			friendID = another
-		} else {
-			friendID = one
-		}
+//		} else {
+//			friendID = one
+//		}
 		if _, ok := friendsMap[friendID]; !ok {
 			friendsMap[friendID] = createdAt
 		}
@@ -466,12 +467,18 @@ LIMIT 10`, user.ID)
 
 //GROUP BYは遅そうだからなにかできる？
 //あしあとは最新だけ残れば良さそう！
-	rows, err = db.Query(`SELECT user_id, owner_id, DATE(created_at) AS date, MAX(created_at) AS updated
+	rows, err = db.Query(`SELECT user_id, owner_id, DATE(created_at) AS date, created_at AS updated
+FROM footprints
+WHERE user_id = ?
+ORDER BY updated DESC
+LIMIT 10`, user.ID)
+/*	rows, err = db.Query(`SELECT user_id, owner_id, DATE(created_at) AS date, MAX(created_at) AS updated
 FROM footprints
 WHERE user_id = ?
 GROUP BY user_id, owner_id, DATE(created_at)
 ORDER BY updated DESC
 LIMIT 10`, user.ID)
+*/
 	if err != sql.ErrNoRows {
 		checkErr(err)
 	}
@@ -515,7 +522,10 @@ func GetProfile(w http.ResponseWriter, r *http.Request) {
 	}
 	var query string
 //許可されている場合はすべて、許可がない場合は公開ページのみ持ってくる
-	if permitted(w, r, owner.ID) {
+	
+	isPermitted:=permitted(w, r, owner.ID) 
+	//if permitted(w, r, owner.ID) {
+	if isPermitted {
 		query = `SELECT * FROM entries WHERE user_id = ? ORDER BY created_at LIMIT 5`
 	} else {
 		query = `SELECT * FROM entries WHERE user_id = ? AND private=0 ORDER BY created_at LIMIT 5`
@@ -544,7 +554,8 @@ func GetProfile(w http.ResponseWriter, r *http.Request) {
 		Entries []Entry
 		Private bool
 	}{
-		*owner, prof, entries, permitted(w, r, owner.ID),
+		//*owner, prof, entries, permitted(w, r, owner.ID),
+		*owner, prof, entries, isPermitted,
 	})
 //permittedを使い回す
 }
@@ -634,7 +645,8 @@ func GetEntry(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 //Limitつける
-	rows, err := db.Query(`SELECT * FROM comments WHERE entry_id = ?`, entry.ID)
+	//rows, err := db.Query(`SELECT * FROM comments WHERE entry_id = ?`, entry.ID)
+	rows, err := db.Query(`SELECT * FROM comments WHERE entry_id = ? LIMIT 10`, entry.ID)
 	if err != sql.ErrNoRows {
 		checkErr(err)
 	}
@@ -742,7 +754,8 @@ func GetFriends(w http.ResponseWriter, r *http.Request) {
 
 	user := getCurrentUser(w, r)
 //どちらかでよい
-	rows, err := db.Query(`SELECT * FROM relations WHERE one = ? OR another = ? ORDER BY created_at DESC`, user.ID, user.ID)
+	rows, err := db.Query(`SELECT * FROM relations WHERE one = ?  ORDER BY created_at DESC`, user.ID)
+	//rows, err := db.Query(`SELECT * FROM relations WHERE one = ? OR another = ? ORDER BY created_at DESC`, user.ID, user.ID)
 	if err != sql.ErrNoRows {
 		checkErr(err)
 	}
@@ -752,11 +765,11 @@ func GetFriends(w http.ResponseWriter, r *http.Request) {
 		var createdAt time.Time
 		checkErr(rows.Scan(&id, &one, &another, &createdAt))
 		var friendID int
-		if one == user.ID {
+//		if one == user.ID {
 			friendID = another
-		} else {
-			friendID = one
-		}
+//		} else {
+//			friendID = one
+//		}
 		if _, ok := friendsMap[friendID]; !ok {
 			friendsMap[friendID] = createdAt
 		}
@@ -777,12 +790,12 @@ func PostFriends(w http.ResponseWriter, r *http.Request) {
 	user := getCurrentUser(w, r)
 	anotherAccount := mux.Vars(r)["account_name"]
 //ユニーク使えば判定いらないかも
-	if !isFriendAccount(w, r, anotherAccount) {
+//	if !isFriendAccount(w, r, anotherAccount) {
 		another := getUserFromAccount(w, anotherAccount)
 		_, err := db.Exec(`INSERT INTO relations (one, another) VALUES (?,?), (?,?)`, user.ID, another.ID, another.ID, user.ID)
 		checkErr(err)
 		http.Redirect(w, r, "/friends", http.StatusSeeOther)
-	}
+//	}
 }
 
 func GetInitialize(w http.ResponseWriter, r *http.Request) {
