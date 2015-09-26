@@ -1,0 +1,284 @@
+Revision history for Perl extension Test::TCP
+
+2.01 2013-09-22T04:13:53Z
+
+    commit 95cd6a0669d422e10f2d3b09f35346c86f7e3257
+    Author: Christian Walde <walde.christian@googlemail.com>
+    Date:   Sat Sep 21 16:19:49 2013 +0200
+
+        test waitport argument by running full code-chain, not with partial mocking
+        
+        The partial mocks cause stuck forks on win32 at times, causing the test to
+        hang. With the full code chain present the test runs reliably
+
+2.00 2013-06-11T04:41:43Z
+
+    [INCOMPATIBLE CHANGES]
+    - Change wait_port() API to take max_wait seconds, and wait exponentially.
+      Dropped wait_port_retry argument introduced at 1.27.
+      (miyagawa)
+
+1.30 2013-06-03T05:06:28Z
+
+    - Increase the default sleep and retry: 0.01 sec and 1000 times
+      (miyagawa)
+
+1.29 2013-05-29T01:12:47Z
+
+    - Care the `test_tcp(port => undef)` case.
+      https://github.com/tokuhirom/Test-TCP/issues/13
+
+1.28 2013-05-28T11:14:27Z
+
+    - Added wait_port_sleep and wait_port_retry option for
+      Test::TCP::wait_port, Test::TCP#new, test_tcp().
+      (tokuhirom)
+
+1.27 2013-05-15T10:13:18Z
+
+    - export wait_port from Net::EmptyPort
+      (Pavel Shaydo)
+    - Make default wait_port() sleeping time shorter.
+      0.1sec => 0.0001sec.
+      (tokuhirom)
+
+1.26 2013-03-29T08:46:20Z
+
+    - Remove unused deps from cpanfile.
+
+1.25 2013-03-29T08:07:24Z
+
+    - re packaging, again & again
+
+1.24 2013-03-28T02:49:32Z
+
+    - re-packing, again.
+
+
+1.23 2013-03-27T01:37:08Z
+
+    - Just re-packaging
+
+1.22 2013-03-27T01:17:38Z
+
+    - Add doc for Test::TCP::CheckPort
+      (Tatsuhiko Miyagawa)
+    - revert b4fc237697648234c960f6714d995210d4250e42 to fix Win32 breakage
+      Test::TCP::CheckPort must be used on win32 because it prints to STDOUT
+      (Christian Walde)
+    - Add UDP support to Net::EmptyPort
+      (Brendan Byrd)
+
+1.21 2013-03-03T12:33:49
+
+    - Added Net::EmptyPort::wait_port()
+      (tokuhirom)
+
+1.20 2013-03-02T18:30:25
+
+    - bump up version
+
+1.19 2013-02-27T14:02:13
+
+    - Split empty_port() function to Net::EmptyPort
+      (Thomas Klausner)
+
+1.18
+
+    - Added more documentation about empty_port()
+
+1.17
+
+    commit 0f4510d83ae2f2ce112288c64289fa36d32865b3
+    Author: Christian Walde <walde.christian@googlemail.com>
+    Date:   Sat Jul 28 07:04:40 2012 +0200
+
+        fix port checking on Win32 by performing it in another process
+        
+        On Win32 fork is emulating by creating another thread in the same process.
+        This leads to a possible bug/race condition when a server tries to open a
+        port and listen on it, while in the same process a client tries to connect
+        to the same port. This manifests by the accept call of the server failing
+        with an error of "Bad file descriptor".
+        
+        This is easily fixed by having another process perform the port checking,
+        since that will not interfere with the internals.
+
+1.16
+
+    [TEST FIX]
+    - 1.15 breaks AIX fix on 1.14.
+      t/05_sigint.t skips on perl <= 5.8.8.
+
+1.15
+
+    [TEST FIX]
+    ${^CHILD_ERROR_NATIVE} is only available in perl 5.8.9 and later.
+    (kazeburo++)
+
+1.14
+
+    - Fixed testing issue on AIX.
+      https://rt.cpan.org/Public/Bug/Display.html?id=72779
+      (w.phillip.moore)
+    - depend to Test::SharedFork 0.19 for better TB2 support
+      (tokuhirom)
+
+1.13
+
+    - RT#67292: Tests are blocking in Windows 7.
+      https://rt.cpan.org/Ticket/Display.html?id=67292
+    - change port number range from 10000 .. 11000 to 50000 .. 60000 to respect IANA.
+      https://rt.cpan.org/Ticket/Display.html?id=64012
+
+1.12
+
+    - workaround for win32 test fails.
+      https://rt.cpan.org/Ticket/Display.html?id=66016
+    - more diagnostic messages
+
+1.11
+
+    - localize $@ in Test::TCP::DESTROY
+
+1.10
+
+    - added Test::TCP->stop method
+
+1.09
+
+    - added document in FAQ section
+
+1.08
+
+    - no feature changes
+
+1.07_01
+
+    - new OO interface!
+
+1.07
+
+    - allow forking in the client(lestrrat)
+
+1.06
+
+    - depend to Test::SharedFork 0.14. It fixes issue with Test::Builder2.
+
+1.05
+
+    - workaround for $@ issue in test case.
+      Data::Util's method modifier clears $@.
+
+1.04
+
+    - fixed local $@ issue. this happens on some version of perl5.
+
+1.03
+
+    - release to cpan
+    - fixed win32 issue(charsbar)
+
+1.02_02
+
+    - use randomness on finding empty port(suggested by kazuhooku)
+    - try to connect the port before bind(Tatsuhiko Miyagawa)
+
+1.02_01
+
+    - better cleanup code by RAII pattern.
+      https://rt.cpan.org/Ticket/Display.html?id=60657
+      (reported by dgl)
+
+1.02
+
+    - lazy loading issue was fixed at Test::SharedFork 0.12.
+      Depend to it.
+      https://rt.cpan.org/Public/Bug/Display.html?id=60426
+      (reported by J.)
+
+1.01
+
+    - remove unused deps for use_test_base().
+
+1.00
+
+    - bump up version!
+
+0.16_02
+
+    - oops. packaging miss.
+
+0.16_01
+
+    - Do not depend to IO::Socket::INET 1.31.
+      Test::TCP works well with older IO, I hope.
+      (suggested by mst)
+
+0.16
+
+    - check port asap(suggested by Hideki YAMAMURA)
+
+0.15
+
+    - fixed win32 issue(by charsbar++)
+
+0.14
+
+    - support win32
+
+0.13
+
+    - handle sigint(reported by kazuho++)
+
+0.12
+
+    - fixed broken test on solaris
+
+0.11
+
+    - fixed broken test, reported by drangon3++
+
+0.10
+
+    - don't leak the process when get a SIGDIE
+    - diag when get SIGPIPE
+
+0.09
+
+    - don't leak the control by SIGTERM, some tcp server return the control by SIGTERM.
+      (reported by kazuho++)
+
+0.08
+
+    - oops. I forget to remove 'use Params::Validate' statement.
+
+0.07
+
+    - diag when get a SIGABRT
+
+0.06
+
+    - pass the pid to client(kazuho)
+    - remove deps for Params::Validate(tokuhirom)
+
+0.05
+
+    - updated docs
+    - set ReuseAddr as true
+
+0.04
+
+    - Test::SharedFork 0.03 has a bug. depend to 0.04
+
+0.03
+
+    - do not depend to Sub::Exporter
+    - use Test::SharedFork
+
+0.02
+
+    - fixed deps for Sub::Exporter(by yappo++)
+
+0.01    Sun Aug 17 15:00:46 2008
+        - original version

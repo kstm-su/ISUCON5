@@ -1,0 +1,354 @@
+setting 'ivy.default.settings.dir' to 'jar:file:/home/isucon/.sbt/launchers/0.13.9/sbt-launch.jar!/org/apache/ivy/core/settings'
+setting 'ivy.basedir' to '/home/isucon/webapp/scala/.'
+setting 'ivy.default.conf.dir' to 'jar:file:/home/isucon/.sbt/launchers/0.13.9/sbt-launch.jar!/org/apache/ivy/core/settings'
+impossible to define new type: class not found: org.apache.ivy.plugins.resolver.SshResolver in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.resolver.VsftpResolver in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.version.PatternVersionMatcher in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.trigger.LogTrigger in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.ant.AntBuildTrigger in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.resolver.IvyRepResolver in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.signer.bouncycastle.OpenPGPSignatureGenerator in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.conflict.RegexpConflictManager in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.resolver.SFTPResolver in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.osgi.updatesite.UpdateSiteResolver in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.ant.AntCallTrigger in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.resolver.MirroredURLResolver in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.resolver.packager.PackagerResolver in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.resolver.DualResolver in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.resolver.VfsResolver in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.resolver.JarResolver in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.osgi.obr.OBRResolver in [] nor Ivy classloader
+impossible to define glob matcher: org.apache.ivy.plugins.matcher.GlobPatternMatcher was not found.
+setting 'jline.esc.timeout' to '0'
+setting 'java.runtime.name' to 'OpenJDK Runtime Environment'
+setting 'sun.boot.library.path' to '/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64'
+setting 'java.vm.version' to '25.45-b02'
+setting 'java.vm.vendor' to 'Oracle Corporation'
+setting 'java.vendor.url' to 'http://java.oracle.com/'
+setting 'path.separator' to ':'
+setting 'java.vm.name' to 'OpenJDK 64-Bit Server VM'
+setting 'file.encoding.pkg' to 'sun.io'
+setting 'user.country' to 'US'
+setting 'sun.java.launcher' to 'SUN_STANDARD'
+setting 'sun.os.patch.level' to 'unknown'
+setting 'java.vm.specification.name' to 'Java Virtual Machine Specification'
+setting 'user.dir' to '/home/isucon/webapp/scala'
+setting 'java.runtime.version' to '1.8.0_45-internal-b14'
+setting 'java.awt.graphicsenv' to 'sun.awt.X11GraphicsEnvironment'
+setting 'java.endorsed.dirs' to '/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/endorsed'
+setting 'os.arch' to 'amd64'
+setting 'java.io.tmpdir' to '/tmp'
+setting 'line.separator' to '
+'
+setting 'java.vm.specification.vendor' to 'Oracle Corporation'
+setting 'os.name' to 'Linux'
+setting 'sun.jnu.encoding' to 'UTF-8'
+setting 'java.library.path' to '/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib'
+setting 'java.specification.name' to 'Java Platform API Specification'
+setting 'java.class.version' to '52.0'
+setting 'sun.management.compiler' to 'HotSpot 64-Bit Tiered Compilers'
+setting 'os.version' to '3.19.0-21-generic'
+setting 'user.home' to '/home/isucon'
+setting 'user.timezone' to 'Etc/UTC'
+setting 'java.awt.printerjob' to 'sun.print.PSPrinterJob'
+setting 'file.encoding' to 'UTF-8'
+setting 'java.specification.version' to '1.8'
+setting 'java.class.path' to '/home/isucon/.sbt/launchers/0.13.9/sbt-launch.jar'
+setting 'user.name' to 'isucon'
+setting 'jline.shutdownhook' to 'false'
+setting 'java.vm.specification.version' to '1.8'
+setting 'sun.java.command' to '/home/isucon/.sbt/launchers/0.13.9/sbt-launch.jar launcher'
+setting 'java.home' to '/usr/lib/jvm/java-8-openjdk-amd64/jre'
+setting 'sun.arch.data.model' to '64'
+setting 'user.language' to 'en'
+setting 'java.specification.vendor' to 'Oracle Corporation'
+setting 'awt.toolkit' to 'sun.awt.X11.XToolkit'
+setting 'java.vm.info' to 'mixed mode'
+setting 'java.version' to '1.8.0_45-internal'
+setting 'java.ext.dirs' to '/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext:/usr/java/packages/lib/ext'
+setting 'sun.boot.class.path' to '/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/classes'
+setting 'java.vendor' to 'Oracle Corporation'
+setting 'file.separator' to '/'
+setting 'java.vendor.url.bug' to 'http://bugreport.sun.com/bugreport/'
+setting 'sun.io.unicode.encoding' to 'UnicodeLittle'
+setting 'sun.cpu.endian' to 'little'
+setting 'sun.cpu.isalist' to ''
+setting 'ivy.default.ivy.user.dir' to '/home/isucon/.ivy2'
+setting 'ivy.home' to '/home/isucon/.ivy2'
+setting 'ivy.cache.dir' to '/home/isucon/.ivy2/cache'
+no default cache defined: set to /home/isucon/.ivy2/cache
+setting 'ivy.checksums' to 'sha1,md5'
+setting 'ivy.basedir' to '/home/isucon/.sbt/boot'
+setting 'basedir' to '/home/isucon/.sbt/boot'
+setting 'scala' to '2.10.5'
+:: resolving dependencies :: org.scala-sbt#boot-scala;1.0
+	confs: [default]
+	validate = true
+	refresh = false
+resolving dependencies for configuration 'default'
+== resolving dependencies for org.scala-sbt#boot-scala;1.0 [default]
+loadData of org.scala-sbt#boot-scala;1.0 of rootConf=default
+== resolving dependencies org.scala-sbt#boot-scala;1.0->org.scala-lang#scala-compiler;2.10.5 [default->default]
+loadData of org.scala-lang#scala-compiler;2.10.5 of rootConf=default
+	using redefined-public to resolve org.scala-lang#scala-compiler;2.10.5
+redefined-public: Checking cache for: dependency: org.scala-lang#scala-compiler;2.10.5 {default=[default, optional(default)]}
+redefined-public: no namespace defined: using system
+No entry is found in the ModuleDescriptorCache : /home/isucon/.ivy2/cache/org.scala-lang/scala-compiler/ivy-2.10.5.xml
+post 1.3 ivy file: using exact as default matcher
+	resolver not found: null => trying to use the one configured for org.scala-lang#scala-compiler;2.10.5
+	configured resolver found for org.scala-lang#scala-compiler;2.10.5: redefined-public: saving this data
+	found ivy file in cache for org.scala-lang#scala-compiler;2.10.5 (resolved by redefined-public): /home/isucon/.ivy2/cache/org.scala-lang/scala-compiler/ivy-2.10.5.xml
+redefined-public: module revision found in cache: org.scala-lang#scala-compiler;2.10.5
+redefined-public: no latest strategy defined: using default
+	found org.scala-lang#scala-compiler;2.10.5 in redefined-public
+== resolving dependencies org.scala-sbt#boot-scala;1.0->org.scala-lang#scala-compiler;2.10.5 [default->runtime]
+loadData of org.scala-lang#scala-compiler;2.10.5 of rootConf=default
+== resolving dependencies org.scala-sbt#boot-scala;1.0->org.scala-lang#scala-compiler;2.10.5 [default->compile]
+loadData of org.scala-lang#scala-compiler;2.10.5 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.10.5->org.scala-lang#scala-library;2.10.5 [compile->master(*)]
+loadData of org.scala-lang#scala-library;2.10.5 of rootConf=default
+	using redefined-public to resolve org.scala-lang#scala-library;2.10.5
+redefined-public: Checking cache for: dependency: org.scala-lang#scala-library;2.10.5 {compile=[compile(*), master(*)], runtime=[runtime(*)]}
+No entry is found in the ModuleDescriptorCache : /home/isucon/.ivy2/cache/org.scala-lang/scala-library/ivy-2.10.5.xml
+post 1.3 ivy file: using exact as default matcher
+	resolver not found: null => trying to use the one configured for org.scala-lang#scala-library;2.10.5
+	configured resolver found for org.scala-lang#scala-library;2.10.5: redefined-public: saving this data
+	found ivy file in cache for org.scala-lang#scala-library;2.10.5 (resolved by redefined-public): /home/isucon/.ivy2/cache/org.scala-lang/scala-library/ivy-2.10.5.xml
+redefined-public: module revision found in cache: org.scala-lang#scala-library;2.10.5
+	found org.scala-lang#scala-library;2.10.5 in redefined-public
+== resolving dependencies org.scala-lang#scala-compiler;2.10.5->org.scala-lang#scala-library;2.10.5 [compile->compile(*)]
+loadData of org.scala-lang#scala-library;2.10.5 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.10.5->org.scala-lang#scala-library;2.10.5 [compile->default]
+loadData of org.scala-lang#scala-library;2.10.5 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.10.5->org.scala-lang#scala-library;2.10.5 [compile->runtime]
+loadData of org.scala-lang#scala-library;2.10.5 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.10.5->org.scala-lang#scala-library;2.10.5 [compile->compile]
+loadData of org.scala-lang#scala-library;2.10.5 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.10.5->org.scala-lang#scala-library;2.10.5 [compile->master]
+loadData of org.scala-lang#scala-library;2.10.5 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.10.5->org.scala-lang#scala-library;2.10.5 [compile->runtime(*)]
+loadData of org.scala-lang#scala-library;2.10.5 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.10.5->org.scala-lang#scala-library;2.10.5 [compile->compile]
+loadData of org.scala-lang#scala-library;2.10.5 of rootConf=default
+default is loaded and no conf to load.  Skip loading
+== resolving dependencies org.scala-lang#scala-compiler;2.10.5->org.scala-lang#scala-reflect;2.10.5 [compile->master(*)]
+loadData of org.scala-lang#scala-reflect;2.10.5 of rootConf=default
+	using redefined-public to resolve org.scala-lang#scala-reflect;2.10.5
+redefined-public: Checking cache for: dependency: org.scala-lang#scala-reflect;2.10.5 {compile=[compile(*), master(*)], runtime=[runtime(*)]}
+No entry is found in the ModuleDescriptorCache : /home/isucon/.ivy2/cache/org.scala-lang/scala-reflect/ivy-2.10.5.xml
+post 1.3 ivy file: using exact as default matcher
+	resolver not found: null => trying to use the one configured for org.scala-lang#scala-reflect;2.10.5
+	configured resolver found for org.scala-lang#scala-reflect;2.10.5: redefined-public: saving this data
+	found ivy file in cache for org.scala-lang#scala-reflect;2.10.5 (resolved by redefined-public): /home/isucon/.ivy2/cache/org.scala-lang/scala-reflect/ivy-2.10.5.xml
+redefined-public: module revision found in cache: org.scala-lang#scala-reflect;2.10.5
+	found org.scala-lang#scala-reflect;2.10.5 in redefined-public
+== resolving dependencies org.scala-lang#scala-compiler;2.10.5->org.scala-lang#scala-reflect;2.10.5 [compile->compile(*)]
+loadData of org.scala-lang#scala-reflect;2.10.5 of rootConf=default
+== resolving dependencies org.scala-lang#scala-reflect;2.10.5->org.scala-lang#scala-library;2.10.5 [compile->master(*)]
+loadData of org.scala-lang#scala-library;2.10.5 of rootConf=default
+default is loaded and no conf to load.  Skip loading
+== resolving dependencies org.scala-lang#scala-reflect;2.10.5->org.scala-lang#scala-library;2.10.5 [compile->compile(*)]
+loadData of org.scala-lang#scala-library;2.10.5 of rootConf=default
+default is loaded and no conf to load.  Skip loading
+== resolving dependencies org.scala-lang#scala-compiler;2.10.5->org.scala-lang#scala-reflect;2.10.5 [compile->runtime(*)]
+loadData of org.scala-lang#scala-reflect;2.10.5 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.10.5->org.scala-lang#scala-reflect;2.10.5 [compile->compile]
+loadData of org.scala-lang#scala-reflect;2.10.5 of rootConf=default
+== resolving dependencies org.scala-lang#scala-reflect;2.10.5->org.scala-lang#scala-library;2.10.5 [runtime->runtime(*)]
+loadData of org.scala-lang#scala-library;2.10.5 of rootConf=default
+default is loaded and no conf to load.  Skip loading
+== resolving dependencies org.scala-lang#scala-reflect;2.10.5->org.scala-lang#scala-library;2.10.5 [runtime->compile]
+loadData of org.scala-lang#scala-library;2.10.5 of rootConf=default
+default is loaded and no conf to load.  Skip loading
+== resolving dependencies org.scala-lang#scala-compiler;2.10.5->org.scala-lang#scala-library;2.10.5 [runtime->runtime(*)]
+loadData of org.scala-lang#scala-library;2.10.5 of rootConf=default
+default is loaded and no conf to load.  Skip loading
+== resolving dependencies org.scala-lang#scala-compiler;2.10.5->org.scala-lang#scala-library;2.10.5 [runtime->compile]
+loadData of org.scala-lang#scala-library;2.10.5 of rootConf=default
+default is loaded and no conf to load.  Skip loading
+== resolving dependencies org.scala-lang#scala-compiler;2.10.5->org.scala-lang#scala-reflect;2.10.5 [runtime->runtime(*)]
+loadData of org.scala-lang#scala-reflect;2.10.5 of rootConf=default
+default is loaded and no conf to load.  Skip loading
+== resolving dependencies org.scala-lang#scala-compiler;2.10.5->org.scala-lang#scala-reflect;2.10.5 [runtime->compile]
+loadData of org.scala-lang#scala-reflect;2.10.5 of rootConf=default
+default is loaded and no conf to load.  Skip loading
+== resolving dependencies org.scala-sbt#boot-scala;1.0->org.scala-lang#scala-compiler;2.10.5 [default->master]
+loadData of org.scala-lang#scala-compiler;2.10.5 of rootConf=default
+== resolving dependencies org.scala-sbt#boot-scala;1.0->org.scala-lang#scala-compiler;2.10.5 [default->optional(default)]
+loadData of org.scala-lang#scala-compiler;2.10.5 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.10.5->org.scala-lang#jline;2.10.5 [optional->master(*)]
+loadData of org.scala-lang#jline;2.10.5 of rootConf=default
+	using redefined-public to resolve org.scala-lang#jline;2.10.5
+redefined-public: Checking cache for: dependency: org.scala-lang#jline;2.10.5 {optional=[compile(*), master(*)]}
+	no ivy file in cache for org.scala-lang#jline;2.10.5: tried /home/isucon/.ivy2/cache/org.scala-lang/jline/ivy-2.10.5.xml
+local: no namespace defined: using system
+	no ivy file in cache for org.scala-lang#jline;2.10.5: tried /home/isucon/.ivy2/cache/org.scala-lang/jline/ivy-2.10.5.xml
+	 trying /home/isucon/.ivy2/local/org.scala-lang/jline/2.10.5/ivys/ivy.xml
+		tried /home/isucon/.ivy2/local/org.scala-lang/jline/2.10.5/ivys/ivy.xml
+	local: resource not reachable for org.scala-lang#jline;2.10.5: res=/home/isucon/.ivy2/local/org.scala-lang/jline/2.10.5/ivys/ivy.xml
+	 trying /home/isucon/.ivy2/local/org.scala-lang/jline/2.10.5/jars/jline.jar
+		tried /home/isucon/.ivy2/local/org.scala-lang/jline/2.10.5/jars/jline.jar
+	local: resource not reachable for org.scala-lang#jline;2.10.5: res=/home/isucon/.ivy2/local/org.scala-lang/jline/2.10.5/jars/jline.jar
+	local: no ivy file nor artifact found for org.scala-lang#jline;2.10.5
+jcenter: no namespace defined: using system
+	no ivy file in cache for org.scala-lang#jline;2.10.5: tried /home/isucon/.ivy2/cache/org.scala-lang/jline/ivy-2.10.5.xml
+	 trying https://jcenter.bintray.com/org/scala-lang/jline/2.10.5/jline-2.10.5.pom
+		tried https://jcenter.bintray.com/org/scala-lang/jline/2.10.5/jline-2.10.5.pom
+	jcenter: found md file for org.scala-lang#jline;2.10.5
+		=> https://jcenter.bintray.com/org/scala-lang/jline/2.10.5/jline-2.10.5.pom (2.10.5)
+	parser = pom parser
+	no ivy file in cache for org.scala-lang#jline;2.10.5: tried /home/isucon/.ivy2/cache/org.scala-lang/jline/ivy-2.10.5.xml
+downloading https://jcenter.bintray.com/org/scala-lang/jline/2.10.5/jline-2.10.5.pom ...
+	jcenter: downloading https://jcenter.bintray.com/org/scala-lang/jline/2.10.5/jline-2.10.5.pom
+		to /home/isucon/.ivy2/cache/org.scala-lang/jline/ivy-2.10.5.xml.original.part
+sha1 file found for https://jcenter.bintray.com/org/scala-lang/jline/2.10.5/jline-2.10.5.pom: checking...
+	jcenter: downloading https://jcenter.bintray.com/org/scala-lang/jline/2.10.5/jline-2.10.5.pom.sha1
+		to /tmp/ivytmp4615473795841773058sha1
+sha1 OK for https://jcenter.bintray.com/org/scala-lang/jline/2.10.5/jline-2.10.5.pom
+	[SUCCESSFUL ] org.scala-lang#jline;2.10.5!jline.pom(pom.original) (813ms)
+	 trying /home/isucon/.ivy2/local/org.scala-lang/jline/2.10.5/jars/jline.jar
+		tried /home/isucon/.ivy2/local/org.scala-lang/jline/2.10.5/jars/jline.jar
+	local: resource not reachable for org.scala-lang#jline;2.10.5: res=/home/isucon/.ivy2/local/org.scala-lang/jline/2.10.5/jars/jline.jar
+	 trying https://jcenter.bintray.com/org/scala-lang/jline/2.10.5/jline-2.10.5.jar
+		tried https://jcenter.bintray.com/org/scala-lang/jline/2.10.5/jline-2.10.5.jar
+no source artifact found for org.scala-lang#jline;2.10.5
+no javadoc artifact found for org.scala-lang#jline;2.10.5
+	default-cache: parsed downloaded md file for org.scala-lang#jline;2.10.5; parsed=org.scala-lang#jline;2.10.5
+	checking org.scala-lang#jline;2.10.5 from jcenter against [none]
+	module revision kept as first found: org.scala-lang#jline;2.10.5 from jcenter
+	found org.scala-lang#jline;2.10.5 in jcenter
+== resolving dependencies org.scala-lang#scala-compiler;2.10.5->org.scala-lang#jline;2.10.5 [optional->compile(*)]
+loadData of org.scala-lang#jline;2.10.5 of rootConf=default
+== resolving dependencies org.scala-lang#jline;2.10.5->org.fusesource.jansi#jansi;1.4 [compile->master(*)]
+loadData of org.fusesource.jansi#jansi;1.4 of rootConf=default
+	using redefined-public to resolve org.fusesource.jansi#jansi;1.4
+redefined-public: Checking cache for: dependency: org.fusesource.jansi#jansi;1.4 {compile=[compile(*), master(*)], runtime=[runtime(*)]}
+	no ivy file in cache for org.fusesource.jansi#jansi;1.4: tried /home/isucon/.ivy2/cache/org.fusesource.jansi/jansi/ivy-1.4.xml
+	no ivy file in cache for org.fusesource.jansi#jansi;1.4: tried /home/isucon/.ivy2/cache/org.fusesource.jansi/jansi/ivy-1.4.xml
+	 trying /home/isucon/.ivy2/local/org.fusesource.jansi/jansi/1.4/ivys/ivy.xml
+		tried /home/isucon/.ivy2/local/org.fusesource.jansi/jansi/1.4/ivys/ivy.xml
+	local: resource not reachable for org.fusesource.jansi#jansi;1.4: res=/home/isucon/.ivy2/local/org.fusesource.jansi/jansi/1.4/ivys/ivy.xml
+	 trying /home/isucon/.ivy2/local/org.fusesource.jansi/jansi/1.4/jars/jansi.jar
+		tried /home/isucon/.ivy2/local/org.fusesource.jansi/jansi/1.4/jars/jansi.jar
+	local: resource not reachable for org.fusesource.jansi#jansi;1.4: res=/home/isucon/.ivy2/local/org.fusesource.jansi/jansi/1.4/jars/jansi.jar
+	local: no ivy file nor artifact found for org.fusesource.jansi#jansi;1.4
+	no ivy file in cache for org.fusesource.jansi#jansi;1.4: tried /home/isucon/.ivy2/cache/org.fusesource.jansi/jansi/ivy-1.4.xml
+	 trying https://jcenter.bintray.com/org/fusesource/jansi/jansi/1.4/jansi-1.4.pom
+		tried https://jcenter.bintray.com/org/fusesource/jansi/jansi/1.4/jansi-1.4.pom
+	jcenter: found md file for org.fusesource.jansi#jansi;1.4
+		=> https://jcenter.bintray.com/org/fusesource/jansi/jansi/1.4/jansi-1.4.pom (1.4)
+	parser = pom parser
+	no ivy file in cache for org.fusesource.jansi#jansi;1.4: tried /home/isucon/.ivy2/cache/org.fusesource.jansi/jansi/ivy-1.4.xml
+downloading https://jcenter.bintray.com/org/fusesource/jansi/jansi/1.4/jansi-1.4.pom ...
+	jcenter: downloading https://jcenter.bintray.com/org/fusesource/jansi/jansi/1.4/jansi-1.4.pom
+		to /home/isucon/.ivy2/cache/org.fusesource.jansi/jansi/ivy-1.4.xml.original.part
+sha1 file found for https://jcenter.bintray.com/org/fusesource/jansi/jansi/1.4/jansi-1.4.pom: checking...
+	jcenter: downloading https://jcenter.bintray.com/org/fusesource/jansi/jansi/1.4/jansi-1.4.pom.sha1
+		to /tmp/ivytmp2531506902628943129sha1
+sha1 OK for https://jcenter.bintray.com/org/fusesource/jansi/jansi/1.4/jansi-1.4.pom
+	[SUCCESSFUL ] org.fusesource.jansi#jansi;1.4!jansi.pom(pom.original) (994ms)
+	 trying /home/isucon/.ivy2/local/org.fusesource.jansi/jansi/1.4/jars/jansi.jar
+		tried /home/isucon/.ivy2/local/org.fusesource.jansi/jansi/1.4/jars/jansi.jar
+	local: resource not reachable for org.fusesource.jansi#jansi;1.4: res=/home/isucon/.ivy2/local/org.fusesource.jansi/jansi/1.4/jars/jansi.jar
+	 trying https://jcenter.bintray.com/org/fusesource/jansi/jansi/1.4/jansi-1.4.jar
+		tried https://jcenter.bintray.com/org/fusesource/jansi/jansi/1.4/jansi-1.4.jar
+no source artifact found for org.fusesource.jansi#jansi;1.4
+no javadoc artifact found for org.fusesource.jansi#jansi;1.4
+	default-cache: parsed downloaded md file for org.fusesource.jansi#jansi;1.4; parsed=org.fusesource.jansi#jansi;1.4
+	checking org.fusesource.jansi#jansi;1.4 from jcenter against [none]
+	module revision kept as first found: org.fusesource.jansi#jansi;1.4 from jcenter
+	found org.fusesource.jansi#jansi;1.4 in jcenter
+== resolving dependencies org.scala-lang#jline;2.10.5->org.fusesource.jansi#jansi;1.4 [compile->compile(*)]
+loadData of org.fusesource.jansi#jansi;1.4 of rootConf=default
+== resolving dependencies org.scala-sbt#boot-scala;1.0->org.scala-lang#scala-library;2.10.5 [default->default]
+loadData of org.scala-lang#scala-library;2.10.5 of rootConf=default
+default is loaded and no conf to load.  Skip loading
+== resolving dependencies org.scala-sbt#boot-scala;1.0->org.scala-lang#scala-library;2.10.5 [default->runtime]
+loadData of org.scala-lang#scala-library;2.10.5 of rootConf=default
+default is loaded and no conf to load.  Skip loading
+== resolving dependencies org.scala-sbt#boot-scala;1.0->org.scala-lang#scala-library;2.10.5 [default->compile]
+loadData of org.scala-lang#scala-library;2.10.5 of rootConf=default
+default is loaded and no conf to load.  Skip loading
+== resolving dependencies org.scala-sbt#boot-scala;1.0->org.scala-lang#scala-library;2.10.5 [default->master]
+loadData of org.scala-lang#scala-library;2.10.5 of rootConf=default
+default is loaded and no conf to load.  Skip loading
+Nbr of module to sort : 5
+Sort dependencies of : org.scala-lang#scala-compiler;2.10.5 / Number of dependencies = 3
+Sort dependencies of : org.scala-lang#scala-library;2.10.5 / Number of dependencies = 0
+Sort done for : org.scala-lang#scala-library;2.10.5
+Sort dependencies of : org.scala-lang#scala-reflect;2.10.5 / Number of dependencies = 1
+Module descriptor is processed : org.scala-lang#scala-library;2.10.5
+Sort done for : org.scala-lang#scala-reflect;2.10.5
+Sort dependencies of : org.scala-lang#jline;2.10.5 / Number of dependencies = 1
+Sort dependencies of : org.fusesource.jansi#jansi;1.4 / Number of dependencies = 1
+Sort done for : org.fusesource.jansi#jansi;1.4
+Sort done for : org.scala-lang#jline;2.10.5
+Sort done for : org.scala-lang#scala-compiler;2.10.5
+Module descriptor is processed : org.scala-lang#scala-library;2.10.5
+Module descriptor is processed : org.scala-lang#scala-reflect;2.10.5
+Module descriptor is processed : org.scala-lang#jline;2.10.5
+Module descriptor is processed : org.fusesource.jansi#jansi;1.4
+storing dependency org.scala-lang#scala-compiler;2.10.5 in props
+storing dependency org.scala-lang#scala-library;2.10.5 in props
+	resolved ivy file produced in cache
+:: downloading artifacts ::
+	[NOT REQUIRED] org.scala-lang#scala-compiler;2.10.5!scala-compiler.jar
+	[NOT REQUIRED] org.scala-lang#scala-library;2.10.5!scala-library.jar
+	[NOT REQUIRED] org.scala-lang#scala-reflect;2.10.5!scala-reflect.jar
+	 trying https://jcenter.bintray.com/org/scala-lang/jline/2.10.5/jline-2.10.5.jar
+		tried https://jcenter.bintray.com/org/scala-lang/jline/2.10.5/jline-2.10.5.jar
+downloading https://jcenter.bintray.com/org/scala-lang/jline/2.10.5/jline-2.10.5.jar ...
+	jcenter: downloading https://jcenter.bintray.com/org/scala-lang/jline/2.10.5/jline-2.10.5.jar
+		to /home/isucon/.ivy2/cache/org.scala-lang/jline/jars/jline-2.10.5.jar.part
+sha1 file found for https://jcenter.bintray.com/org/scala-lang/jline/2.10.5/jline-2.10.5.jar: checking...
+	jcenter: downloading https://jcenter.bintray.com/org/scala-lang/jline/2.10.5/jline-2.10.5.jar.sha1
+		to /tmp/ivytmp268616325886193344sha1
+sha1 OK for https://jcenter.bintray.com/org/scala-lang/jline/2.10.5/jline-2.10.5.jar
+	[SUCCESSFUL ] org.scala-lang#jline;2.10.5!jline.jar (1803ms)
+	 trying https://jcenter.bintray.com/org/fusesource/jansi/jansi/1.4/jansi-1.4.jar
+		tried https://jcenter.bintray.com/org/fusesource/jansi/jansi/1.4/jansi-1.4.jar
+downloading https://jcenter.bintray.com/org/fusesource/jansi/jansi/1.4/jansi-1.4.jar ...
+	jcenter: downloading https://jcenter.bintray.com/org/fusesource/jansi/jansi/1.4/jansi-1.4.jar
+		to /home/isucon/.ivy2/cache/org.fusesource.jansi/jansi/jars/jansi-1.4.jar.part
+sha1 file found for https://jcenter.bintray.com/org/fusesource/jansi/jansi/1.4/jansi-1.4.jar: checking...
+	jcenter: downloading https://jcenter.bintray.com/org/fusesource/jansi/jansi/1.4/jansi-1.4.jar.sha1
+		to /tmp/ivytmp7123200125666564339sha1
+sha1 OK for https://jcenter.bintray.com/org/fusesource/jansi/jansi/1.4/jansi-1.4.jar
+	[SUCCESSFUL ] org.fusesource.jansi#jansi;1.4!jansi.jar (1193ms)
+:: resolution report :: resolve 2641ms :: artifacts dl 2997ms
+Nbr of module to sort : 5
+Sort dependencies of : org.scala-lang#scala-compiler;2.10.5 / Number of dependencies = 3
+Sort dependencies of : org.scala-lang#scala-library;2.10.5 / Number of dependencies = 0
+Sort done for : org.scala-lang#scala-library;2.10.5
+Sort dependencies of : org.scala-lang#scala-reflect;2.10.5 / Number of dependencies = 1
+Module descriptor is processed : org.scala-lang#scala-library;2.10.5
+Sort done for : org.scala-lang#scala-reflect;2.10.5
+Sort dependencies of : org.scala-lang#jline;2.10.5 / Number of dependencies = 1
+Sort dependencies of : org.fusesource.jansi#jansi;1.4 / Number of dependencies = 1
+Sort done for : org.fusesource.jansi#jansi;1.4
+Sort done for : org.scala-lang#jline;2.10.5
+Sort done for : org.scala-lang#scala-compiler;2.10.5
+Module descriptor is processed : org.scala-lang#scala-library;2.10.5
+Module descriptor is processed : org.scala-lang#scala-reflect;2.10.5
+Module descriptor is processed : org.scala-lang#jline;2.10.5
+Module descriptor is processed : org.fusesource.jansi#jansi;1.4
+	report for org.scala-sbt#boot-scala;1.0 default produced in /home/isucon/.sbt/boot/resolution-cache/org.scala-sbt-boot-scala-default.xml
+	resolve done (2641ms resolve - 2997ms download)
+setting 'scala' to '2.10.5'
+:: retrieving :: org.scala-sbt#boot-scala
+	checkUpToDate=true
+post 1.3 ivy file: using exact as default matcher
+no explicit confs given for retrieve, using ivy file: file:/home/isucon/.sbt/boot/resolution-cache/resolved-org.scala-sbt-boot-scala-1.0.xml
+	confs: [default]
+	retrieving /home/isucon/.ivy2/cache/org.scala-lang/scala-compiler/jars/scala-compiler-2.10.5.jar
+		to /home/isucon/.sbt/boot/scala-2.10.5/lib/scala-compiler.jar
+	retrieving /home/isucon/.ivy2/cache/org.fusesource.jansi/jansi/jars/jansi-1.4.jar
+		to /home/isucon/.sbt/boot/scala-2.10.5/lib/jansi.jar
+	retrieving /home/isucon/.ivy2/cache/org.scala-lang/jline/jars/jline-2.10.5.jar
+		to /home/isucon/.sbt/boot/scala-2.10.5/lib/jline.jar
+	retrieving /home/isucon/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.5.jar
+		to /home/isucon/.sbt/boot/scala-2.10.5/lib/scala-library.jar
+	retrieving /home/isucon/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.10.5.jar
+		to /home/isucon/.sbt/boot/scala-2.10.5/lib/scala-reflect.jar
+	5 artifacts copied, 0 already retrieved (24493kB/30ms)
+	retrieve done (30ms)

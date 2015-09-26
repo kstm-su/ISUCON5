@@ -1,0 +1,98 @@
+Revision history for Perl extension Test::SharedFork
+
+0.21
+
+    commit 8a94505105f87671ea03fed02eb6611bf7156e71
+    Author: tokuhirom <tokuhirom@gmail.com>
+    Date:   Fri Nov 9 09:57:36 2012 +0900
+
+    t/10_subtest.t: added --norc option for more portable testing.
+
+0.20
+
+    - test_requires Time::HiRes for redhat.
+      (berekuk++)
+
+0.19
+
+    - fixed TB2 support(tokuhirom)
+
+0.18
+
+    - More fixes for failure locations(hoelzro)
+
+0.17
+
+    - fixed test level(hoelzro)
+
+0.16
+
+    - doc tweaks
+
+0.15
+
+        - added "LIMITATION" section to docs.
+          I gave up to support ithreads.
+
+0.14
+
+        - release!
+
+0.13_01
+
+        - Test::Builder2 support
+
+0.12
+
+        - fixed lazy loading issue RT#60426
+          (reported by J.)
+
+0.11
+
+        - write depended perl version. this module requires perl5.8 or later.
+
+0.10
+
+        - oops
+
+0.09
+
+        - fixed $Test::Builder::Level(by konbuizm)
+
+0.08
+
+        - fixed deps for Test::More 0.88(thanks to andk++)
+
+0.07(not released to cpan)
+
+        - cleanup code.->parent, ->child, ->fork was obsoleted.
+
+0.07_01
+
+        - win32 support
+        - added premitive test cases
+
+0.06
+
+        - call parent() automatically(reported by kazuho++)
+
+0.05
+
+        - enhancements for subtests support
+
+0.04
+
+        - [BUG] previous version does not works with many fork
+
+0.03
+
+        - added Test::SharedFork->fork()
+        - use flock(2) instead of IPC::ShareLite
+
+0.02
+
+        - ooppppsss. Test::Fork was already used by schwern.
+          rename to Test::SharedFork
+
+0.01    Wed Mar 25 14:06:28 2009
+        - original version

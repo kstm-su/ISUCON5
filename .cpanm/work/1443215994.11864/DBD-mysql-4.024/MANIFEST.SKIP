@@ -1,0 +1,7 @@
+\B\.git\b
+^blib\/
+\~$
+^Makefile(\.old)?$
+.gitignore
+^DBD-mysql-\d
+\.bak$

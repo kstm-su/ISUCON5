@@ -1,0 +1,1 @@
+{"pathname":"K/KA/KAZEBURO/WWW-Form-UrlEncoded-0.22.tar.gz","target":"WWW::Form::UrlEncoded","name":"WWW::Form::UrlEncoded","version":"0.22","provides":{"WWW::Form::UrlEncoded":{"version":"0.22","file":"lib/WWW/Form/UrlEncoded.pm"},"WWW::Form::UrlEncoded::PP":{"file":"lib/WWW/Form/UrlEncoded/PP.pm"}},"dist":"WWW-Form-UrlEncoded-0.22"}

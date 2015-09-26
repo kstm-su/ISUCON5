@@ -1,0 +1,23 @@
+do{ my $x = {
+       'build_requires' => {
+                             'Capture::Tiny' => '0',
+                             'DBD::SQLite' => '1.31',
+                             'Test::More' => '0.98',
+                             'Test::Requires' => '0',
+                             'Test::TCP' => '0'
+                           },
+       'conflicts' => {},
+       'recommends' => {},
+       'requires' => {
+                       'Class::Accessor::Lite' => '0.05',
+                       'Class::Data::Inheritable' => '0',
+                       'DBI' => '1.615',
+                       'DBIx::TransactionManager' => '0',
+                       'Data::Validator' => '0',
+                       'Scalar::Util' => '0',
+                       'parent' => '0',
+                       'perl' => '5.008005'
+                     },
+       'test_requires' => {}
+     };
+$x; }

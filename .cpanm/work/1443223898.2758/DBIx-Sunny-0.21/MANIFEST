@@ -1,0 +1,26 @@
+.travis.yml
+Build.PL
+Changes
+lib/DBIx/Sunny.pm
+lib/DBIx/Sunny/Schema.pm
+LICENSE
+MANIFEST			This list of files
+META.json
+META.yml
+README
+t/00_compile.t
+t/01_basic.t
+t/02_rootclass.t
+t/03_txn.t
+t/schema_00_compile.t
+t/schema_01_basic.t
+t/schema_03_txn.t
+t/scheme_02_args.t
+t/TestSchema.pm
+xt/01_podspell.t
+xt/02_perlcritic.t
+xt/03_pod.t
+xt/04_minimum_version.t
+xt/05_cpan_meta.t
+xt/06_meta_author.t
+xt/07_mysql.t

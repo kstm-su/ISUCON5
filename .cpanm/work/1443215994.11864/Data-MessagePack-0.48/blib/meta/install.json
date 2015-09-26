@@ -1,0 +1,1 @@
+{"name":"Data::MessagePack","provides":{"Data::MessagePack":{"file":"lib/Data/MessagePack.pm","version":"0.48"},"Data::MessagePack::PP":{"file":"lib/Data/MessagePack/PP.pm"},"Data::MessagePack::Boolean":{"file":"lib/Data/MessagePack/Boolean.pm"}},"pathname":"G/GF/GFUJI/Data-MessagePack-0.48.tar.gz","version":"0.48","dist":"Data-MessagePack-0.48","target":"Data::MessagePack"}

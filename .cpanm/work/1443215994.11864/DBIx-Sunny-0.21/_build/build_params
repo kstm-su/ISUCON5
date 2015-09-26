@@ -1,0 +1,152 @@
+do{ my $x = [
+       {
+         'ARGV' => []
+       },
+       {
+         'installman1dir' => '',
+         'installman3dir' => '',
+         'installsiteman1dir' => '',
+         'installsiteman3dir' => ''
+       },
+       {
+         'PL_files' => undef,
+         '_added_to_INC' => [
+                              '/home/isucon/webapp/perl/local/lib/perl5/x86_64-linux',
+                              '/home/isucon/webapp/perl/local/lib/perl5'
+                            ],
+         'allow_mb_mismatch' => 0,
+         'allow_pureperl' => 0,
+         'auto_configure_requires' => 1,
+         'autosplit' => undef,
+         'base_dir' => '/home/isucon/.cpanm/work/1443215994.11864/DBIx-Sunny-0.21',
+         'bindoc_dirs' => [
+                            'blib/script'
+                          ],
+         'blib' => 'blib',
+         'build_bat' => 0,
+         'build_class' => 'Module::Build',
+         'build_elements' => [
+                               'PL',
+                               'support',
+                               'pm',
+                               'xs',
+                               'share_dir',
+                               'pod',
+                               'script'
+                             ],
+         'build_requires' => {
+                               'Capture::Tiny' => '0',
+                               'DBD::SQLite' => '1.31',
+                               'Test::More' => '0.98',
+                               'Test::Requires' => '0',
+                               'Test::TCP' => '0'
+                             },
+         'build_script' => 'Build',
+         'bundle_inc' => [],
+         'bundle_inc_preload' => [],
+         'c_source' => undef,
+         'config' => undef,
+         'config_dir' => '_build',
+         'configure_requires' => {
+                                   'Module::Build' => '0.38'
+                                 },
+         'conflicts' => {},
+         'cpan_client' => 'cpan',
+         'create_license' => 1,
+         'create_makefile_pl' => undef,
+         'create_packlist' => 1,
+         'create_readme' => 1,
+         'debug' => undef,
+         'debugger' => undef,
+         'destdir' => undef,
+         'dist_abstract' => undef,
+         'dist_author' => undef,
+         'dist_name' => 'DBIx-Sunny',
+         'dist_suffix' => undef,
+         'dist_version' => '0.21',
+         'dist_version_from' => 'lib/DBIx/Sunny.pm',
+         'dynamic_config' => 0,
+         'extra_compiler_flags' => [],
+         'extra_linker_flags' => [],
+         'extra_manify_args' => undef,
+         'get_options' => {},
+         'has_config_data' => undef,
+         'html_css' => '',
+         'include_dirs' => [],
+         'install_base' => '/home/isucon/webapp/perl/local',
+         'install_base_relpaths' => {},
+         'install_path' => {},
+         'install_sets' => {},
+         'installdirs' => 'site',
+         'libdoc_dirs' => [
+                            'blib/lib',
+                            'blib/arch'
+                          ],
+         'license' => 'perl',
+         'magic_number' => undef,
+         'mb_version' => '0.4214',
+         'meta_add' => {},
+         'meta_merge' => {},
+         'metafile' => 'META.yml',
+         'metafile2' => 'META.json',
+         'module_name' => 'DBIx::Sunny',
+         'mymetafile' => 'MYMETA.yml',
+         'mymetafile2' => 'MYMETA.json',
+         'name' => 'DBIx-Sunny',
+         'needs_compiler' => '',
+         'no_index' => {
+                         'directory' => [
+                                          'inc',
+                                          't',
+                                          'xt'
+                                        ]
+                       },
+         'orig_dir' => '/home/isucon/.cpanm/work/1443215994.11864/DBIx-Sunny-0.21',
+         'original_prefix' => {},
+         'perl' => '/home/isucon/.local/perl/bin/perl',
+         'pm_files' => undef,
+         'pod_files' => undef,
+         'pollute' => undef,
+         'prefix' => undef,
+         'prefix_relpaths' => {},
+         'prereq_action_types' => [
+                                    'requires',
+                                    'build_requires',
+                                    'test_requires',
+                                    'conflicts',
+                                    'recommends'
+                                  ],
+         'program_name' => undef,
+         'pureperl_only' => 0,
+         'quiet' => undef,
+         'recommends' => {},
+         'recurse_into' => [],
+         'recursive_test_files' => 1,
+         'release_status' => 'stable',
+         'requires' => {
+                         'Class::Accessor::Lite' => '0.05',
+                         'Class::Data::Inheritable' => '0',
+                         'DBI' => '1.615',
+                         'DBIx::TransactionManager' => '0',
+                         'Data::Validator' => '0',
+                         'Scalar::Util' => '0',
+                         'parent' => '0',
+                         'perl' => '5.008005'
+                       },
+         'script_files' => undef,
+         'scripts' => undef,
+         'share_dir' => undef,
+         'sign' => undef,
+         'tap_harness_args' => {},
+         'test_file_exts' => [
+                               '.t'
+                             ],
+         'test_files' => 't/',
+         'test_requires' => {},
+         'use_rcfile' => 1,
+         'use_tap_harness' => 0,
+         'verbose' => undef,
+         'xs_files' => undef
+       }
+     ];
+$x; }

@@ -1,0 +1,78 @@
+Ignoring indexes: https://pypi.python.org/simple
+Collecting setuptools
+Collecting pip
+Installing collected packages: pip, setuptools
+
+
+Successfully installed pip-6.0.8 setuptools-12.0.5
+Ignoring indexes: https://pypi.python.org/simple
+Requirement already satisfied (use --upgrade to upgrade): setuptools in /home/isucon/.local/python3/lib/python3.4/site-packages
+Requirement already satisfied (use --upgrade to upgrade): pip in /home/isucon/.local/python3/lib/python3.4/site-packages
+You are using pip version 6.0.8, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Collecting bottle
+  Downloading bottle-0.12.8.tar.gz (69kB)
+Installing collected packages: bottle
+  Running setup.py install for bottle
+    changing mode of build/scripts-3.4/bottle.py from 644 to 755
+    changing mode of /home/isucon/.local/python3/bin/bottle.py to 755
+Successfully installed bottle-0.12.8
+You are using pip version 6.0.8, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Collecting pymysql
+  Downloading PyMySQL-0.6.6-py2.py3-none-any.whl (66kB)
+Installing collected packages: pymysql
+
+Successfully installed pymysql-0.6.6
+You are using pip version 6.0.8, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Collecting gunicorn
+  Downloading gunicorn-19.3.0-py2.py3-none-any.whl (110kB)
+Installing collected packages: gunicorn
+
+Successfully installed gunicorn-19.3.0
+You are using pip version 6.0.8, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Requirement already satisfied (use --upgrade to upgrade): bottle in ./.local/python3/lib/python3.4/site-packages
+You are using pip version 6.0.8, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Requirement already satisfied (use --upgrade to upgrade): pymysql in ./.local/python3/lib/python3.4/site-packages
+You are using pip version 6.0.8, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Requirement already satisfied (use --upgrade to upgrade): gunicorn in ./.local/python3/lib/python3.4/site-packages
+You are using pip version 6.0.8, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Requirement already satisfied (use --upgrade to upgrade): bottle in ./.local/python3/lib/python3.4/site-packages
+You are using pip version 6.0.8, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Requirement already satisfied (use --upgrade to upgrade): pymysql in ./.local/python3/lib/python3.4/site-packages
+You are using pip version 6.0.8, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Requirement already satisfied (use --upgrade to upgrade): gunicorn in ./.local/python3/lib/python3.4/site-packages
+You are using pip version 6.0.8, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Requirement already satisfied (use --upgrade to upgrade): bottle in ./.local/python3/lib/python3.4/site-packages
+You are using pip version 6.0.8, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Requirement already satisfied (use --upgrade to upgrade): pymysql in ./.local/python3/lib/python3.4/site-packages
+You are using pip version 6.0.8, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Requirement already satisfied (use --upgrade to upgrade): gunicorn in ./.local/python3/lib/python3.4/site-packages
+You are using pip version 6.0.8, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Requirement already satisfied (use --upgrade to upgrade): bottle in ./.local/python3/lib/python3.4/site-packages
+You are using pip version 6.0.8, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Requirement already satisfied (use --upgrade to upgrade): pymysql in ./.local/python3/lib/python3.4/site-packages
+You are using pip version 6.0.8, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Requirement already satisfied (use --upgrade to upgrade): gunicorn in ./.local/python3/lib/python3.4/site-packages
+You are using pip version 6.0.8, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Requirement already satisfied (use --upgrade to upgrade): bottle in ./.local/python3/lib/python3.4/site-packages
+You are using pip version 6.0.8, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Requirement already satisfied (use --upgrade to upgrade): pymysql in ./.local/python3/lib/python3.4/site-packages
+You are using pip version 6.0.8, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Requirement already satisfied (use --upgrade to upgrade): gunicorn in ./.local/python3/lib/python3.4/site-packages

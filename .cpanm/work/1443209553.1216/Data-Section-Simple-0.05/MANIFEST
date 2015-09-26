@@ -1,0 +1,17 @@
+Changes
+LICENSE
+MANIFEST
+META.json
+META.yml
+Makefile.PL
+README
+cpanfile
+dist.ini
+lib/Data/Section/Simple.pm
+t/DataInCode.pm
+t/Foo.pm
+t/basic.t
+t/data.t
+t/no-datat.t
+t/pkg_oo.t
+t/release-pod-syntax.t

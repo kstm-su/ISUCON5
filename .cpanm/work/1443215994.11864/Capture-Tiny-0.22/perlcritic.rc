@@ -1,0 +1,20 @@
+severity = 5
+verbose = 8
+
+[Variables::ProhibitPunctuationVars]
+allow = $@ $!
+
+# Turn these off
+[-BuiltinFunctions::ProhibitStringyEval]
+[-ControlStructures::ProhibitPostfixControls]
+[-ControlStructures::ProhibitUnlessBlocks]
+[-Documentation::RequirePodSections]
+[-InputOutput::ProhibitInteractiveTest]
+[-References::ProhibitDoubleSigils]
+[-RegularExpressions::RequireExtendedFormatting]
+[-InputOutput::ProhibitTwoArgOpen]
+[-InputOutput::RequireEncodingWithUTF8Layer]
+
+# Turn this on
+[Lax::ProhibitStringyEval::ExceptForRequire]
+

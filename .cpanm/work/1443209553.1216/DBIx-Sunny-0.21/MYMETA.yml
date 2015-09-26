@@ -1,0 +1,50 @@
+---
+abstract: 'Simple DBI wrapper'
+author:
+  - 'Masahiro Nagano E<lt>kazeburo KZBRKZBR@ gmail.comE<gt>'
+build_requires:
+  Capture::Tiny: '0'
+  DBD::SQLite: '1.31'
+  Test::More: '0.98'
+  Test::Requires: '0'
+  Test::TCP: '0'
+configure_requires:
+  Module::Build: '0.38'
+dynamic_config: 0
+generated_by: 'Module::Build version 0.4214, CPAN::Meta::Converter version 2.150005'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: '1.4'
+name: DBIx-Sunny
+no_index:
+  directory:
+    - inc
+    - t
+    - xt
+provides:
+  DBIx::Sunny:
+    file: lib/DBIx/Sunny.pm
+    version: '0.21'
+  DBIx::Sunny::Schema:
+    file: lib/DBIx/Sunny/Schema.pm
+    version: '0'
+  DBIx::Sunny::db:
+    file: lib/DBIx/Sunny.pm
+    version: '0'
+  DBIx::Sunny::st:
+    file: lib/DBIx/Sunny.pm
+    version: '0'
+requires:
+  Class::Accessor::Lite: '0.05'
+  Class::Data::Inheritable: '0'
+  DBI: '1.615'
+  DBIx::TransactionManager: '0'
+  Data::Validator: '0'
+  Scalar::Util: '0'
+  parent: '0'
+  perl: '5.008005'
+resources:
+  license: http://dev.perl.org/licenses/
+version: '0.21'
+x_serialization_backend: 'CPAN::Meta::YAML version 0.012'

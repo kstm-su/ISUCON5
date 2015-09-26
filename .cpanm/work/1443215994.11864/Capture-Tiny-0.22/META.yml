@@ -1,0 +1,48 @@
+---
+abstract: 'Capture STDOUT and STDERR from Perl, XS or external programs'
+author:
+  - 'David Golden <dagolden@cpan.org>'
+build_requires:
+  Config: 0
+  ExtUtils::MakeMaker: 0
+  File::Find: 0
+  File::Spec::Functions: 0
+  IO::File: 0
+  List::Util: 0
+  Test::More: 0.62
+configure_requires:
+  ExtUtils::MakeMaker: 6.30
+dynamic_config: 1
+generated_by: 'Dist::Zilla version 4.300031, CPAN::Meta::Converter version 2.120921'
+license: apache
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Capture-Tiny
+no_index:
+  directory:
+    - t
+    - xt
+    - examples
+    - corpus
+  package:
+    - DB
+provides:
+  Capture::Tiny:
+    file: lib/Capture/Tiny.pm
+    version: 0.22
+requires:
+  Carp: 0
+  Exporter: 0
+  File::Spec: 0
+  File::Temp: 0
+  IO::Handle: 0
+  Scalar::Util: 0
+  perl: 5.008
+  strict: 0
+  warnings: 0
+resources:
+  bugtracker: https://github.com/dagolden/capture-tiny/issues
+  homepage: https://metacpan.org/release/Capture-Tiny
+  repository: git://github.com/dagolden/capture-tiny.git
+version: 0.22

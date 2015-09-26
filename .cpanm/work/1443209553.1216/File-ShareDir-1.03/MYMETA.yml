@@ -1,0 +1,35 @@
+---
+abstract: 'Locate per-dist and per-module shared files'
+author:
+  - 'Adam Kennedy <adamk@cpan.org>'
+build_requires:
+  ExtUtils::MakeMaker: '6.42'
+  Test::More: '0.47'
+configure_requires:
+  ExtUtils::MakeMaker: '0'
+dynamic_config: 0
+generated_by: 'Module::Install version 1.00, CPAN::Meta::Converter version 2.150005'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: '1.4'
+name: File-ShareDir
+no_index:
+  directory:
+    - foo
+    - inc
+    - share
+    - t
+    - xt
+requires:
+  Carp: '0'
+  Class::Inspector: '1.12'
+  File::Spec: '0.80'
+  perl: '5.005'
+resources:
+  ChangeLog: http://fisheye2.atlassian.com/changelog/cpan/trunk/File-ShareDir
+  license: http://dev.perl.org/licenses/
+  repository: http://svn.ali.as/cpan/trunk/File-ShareDir
+version: '1.03'
+x_module_name: File::ShareDir
+x_serialization_backend: 'CPAN::Meta::YAML version 0.012'
