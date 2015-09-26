@@ -7,6 +7,8 @@ use Kossy;
 use DBIx::Sunny;
 use Encode;
 
+print $ENV{ISUCON5_DB_PASSWORD};
+
 my $db;
 sub db {
     $db ||= do {

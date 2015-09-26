@@ -395,6 +395,10 @@ LIMIT 10`, user.ID)
 //MySQL側で対処
 
 //最優先
+/* 追加 */
+	session := getSession(w, r)
+	myID := session.Values["user_id"]
+/* ここまで */
 	rows, err = db.Query(`SELECT * FROM comments ORDER BY created_at DESC LIMIT 1000`)
 	if err != sql.ErrNoRows {
 		checkErr(err)
